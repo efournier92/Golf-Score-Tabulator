@@ -1,8 +1,13 @@
 ##Golf Score Tabulator
 
 This is a simple application I built to print a golf score to the command line,
-based on a hash. For the example in `app.rb`, I used the following data:
+based on an array of hashes located in `app.rb`.
 
+In the CLI output, each hole displays whether the score was over, under, or at par.
+
+I built this application to practice compound data structure iterations in Ruby.
+
+For the example in `app.rb` or master branch, I used the following data:
 * Hole 1 (Par 5): 7
 * Hole 2 (Par 4): 5
 * Hole 3 (Par 3): 3
@@ -21,7 +26,3 @@ based on a hash. For the example in `app.rb`, I used the following data:
 * Hole 16 (Par 4): 4
 * Hole 17 (Par 3): 3
 * Hole 18 (Par 5): 6
-
-In the CLI output, each hole displays whether the score was over, under, or at par.
-
-I built this application to practice compound data structure iterations in Ruby.

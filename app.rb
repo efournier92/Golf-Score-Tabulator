@@ -1,7 +1,6 @@
-sep1 = "**************************************"
-sep2 = "-------------------------------------"
-par_total = 0
-score_total = 0
+SEP = "**************************************"
+LNE = "-------------------------------------"
+
 scorecard = [
 {hole: 1, par: 5, score: 7},
 {hole: 2, par: 4, score: 5},
@@ -22,29 +21,33 @@ scorecard = [
 {hole: 17, par: 3, score: 3},
 {hole: 18, par: 5, score: 6},
 ]
-puts "#{sep1}\nHOLE    PAR    SCORE     OVER/UNDR\n#{sep2}"
+
+par_total = 0
+score_total = 0
+puts "#{SEP}\nHOLE    PAR    SCORE     OVER/UNDR\n#{LNE}"
 scorecard.each do |hole_hash|
-  differential = hole_hash[:par] - hole_hash[:score]
-  if differential == 0
-    differential = "  ON PAR"
-  elsif differential < 0
-    differential = "#{differential.abs} OVER PAR"
+  diff = hole_hash[:par] - hole_hash[:score]
+  if diff == 0
+    diff = "  ON PAR"
+  elsif diff < 0
+    diff = "#{diff.abs} OVER PAR"
   else
-    differential = "#{differential} UNDR PAR"
+    diff = "#{diff} UNDR PAR"
   end
   puts " #{"%02d" % hole_hash[:hole]}\
       #{hole_hash[:par]}       #{hole_hash[:score]}\
-       #{differential}"
+       #{diff}"
   par_total += hole_hash[:par]
   score_total += hole_hash[:score]
 end
-print "#{sep2}\nTOTAL:  #{par_total}      #{score_total}"
-differential_total = par_total - score_total
-  if differential_total == 0
+
+print "#{LNE}\nTOTAL:  #{par_total}      #{score_total}"
+diff_total = par_total - score_total
+  if diff_total == 0
     puts "         ON PAR"
-  elsif differential_total < 0
-    puts "       #{differential_total.abs} OVER PAR"
+  elsif diff_total < 0
+    puts "       #{diff_total.abs} OVER PAR"
   else
-    puts "       #{differential_total} UNDR PAR"
+    puts "       #{diff_total} UNDR PAR"
   end
-puts sep1
+puts SEP
